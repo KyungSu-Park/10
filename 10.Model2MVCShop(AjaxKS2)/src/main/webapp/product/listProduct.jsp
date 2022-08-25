@@ -42,18 +42,18 @@
 			fncGetListPrice();
 		});
 		
-		$(".ct_list_pop td:nth-child(3)").css("color", "red");
+		$(".ct_list_pop td:nth-child(3)").css("color", "green");
 		
 		$(".ct_list_pop td:nth-child(3)").bind("click", function(){
 			
 			var thisRow = $(this).parent().find("td:eq(0)").text();
 			
-			alert(thisRow);
+			//alert(thisRow);
 			self.location = "/product/getProduct?prodNo=" + $(this).parent().find("td:eq(0)").text() + "&menu=${menu}";
 			
 		});
 		
-		$("#low_price").bind("click", function(){
+		/* $("#low_price").bind("click", function(){
 			
 			$("#low_price").text(2);
 			$("#order").val(2);
@@ -67,7 +67,7 @@
 			$("#order").val(1);
 			
 			$("form").attr("method", "POST").attr("action", "/product/listProduct").submit();
-		});
+		}); */
 		
 	});
 	
@@ -124,7 +124,7 @@
 				<table border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td width="17" height="23" class="ct_btn01">
-							<input type="button" id="mainSearch" value="검색" >
+						 <input type="button" id="mainSearch" value="검색" > 
 						</td>
 					</tr>
 				</table>
@@ -135,16 +135,16 @@
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;">
 		<tr>
 			<td colspan="11" >전체 ${ resultPage.totalCount } 건수, 현재 ${ resultPage.currentPage } 페이지&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="button" id="low_price" value="낮은 가격순" >
+	<%-- 			<input type="button" id="low_price" value="낮은 가격순" >
 				<input type="button" id="high_price" value="높은 가격순">&nbsp;&nbsp;&nbsp;&nbsp;
 				
 				<span><input type="text" name="minPrice" class="param-pricerange" maxlength="10" value="${search.minPrice != -1 ? search.minPrice : ""}"
 						class="ct_input_g" style="width:100px; height:19px" > ~</span>
 			    <span><input type="text" name="maxPrice" class="param-pricerange" maxlength="10" value="${search.maxPrice != -1? search.maxPrice : ""}"
-			    				class="ct_input_g" style="width:100px; height:19px" > 원</span>
+			    				class="ct_input_g" style="width:100px; height:19px" > 원</span> 
 			
 			    <input type="button" value="검색">
-	    
+	    --%>
 			</td>
 		</tr>
 		<tr>
@@ -187,14 +187,12 @@
 				<td align="center">
 					
 						판매중
-					
-					
-			
+
 				</td>	
 					
 				<td></td>
 			
-			<c:if test="${!empty user && fn:trim(user.role) == 'admin' && menu == 'manage'}">
+			<c:if test="${empty user && fn:trim(user.role) == 'admin' && menu == 'manage'}">
 				<td align="center"></td>
 			</c:if>	
 						

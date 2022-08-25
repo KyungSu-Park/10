@@ -54,8 +54,8 @@ public class ProductRestController {
 			if(fileCount != file.length) {
 				sb.append("*");
 			}
+			String path = "C:\\Users\\903-16\\git\\repository4\\10.Model2MVCShop(AjaxKS2)\\src\\main\\webapp\\images\\uploadFiles\\";
 			
-			String path = "C:\\Users\\bitcamp\\git\\00.Model2MVCShop\\00.Model2MVCShop\\src\\main\\webapp\\images\\uploadFiles\\";
 			File saveFile = new File(path + files.getOriginalFilename());
 			
 			files.transferTo(saveFile);
@@ -117,8 +117,8 @@ public class ProductRestController {
 				sb.append("*");
 			}
 			
-//			String path = "C:\\Users\\bitcamp\\git\\00.Model2MVCShop\\00.Model2MVCShop\\src\\main\\webapp\\images\\uploadFiles\\";
-			String path = "C:\\Users\\H2\\git\\00.Model2MVCShop\\00.Model2MVCShop\\src\\main\\webapp\\images\\uploadFiles\\";
+
+			String path = "C:\\Users\\903-16\\git\\repository4\\10.Model2MVCShop(AjaxKS2)\\src\\main\\webapp\\images\\uploadFiles\\";
 			File saveFile = new File(path + files.getOriginalFilename());
 			
 			files.transferTo(saveFile);

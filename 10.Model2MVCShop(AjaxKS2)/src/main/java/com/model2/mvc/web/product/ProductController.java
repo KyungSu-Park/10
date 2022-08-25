@@ -78,7 +78,7 @@ public class ProductController {
 				sb.append("*");
 			}
 			
-			String path = "C:\\Users\\bitcamp\\git\\09.Model2MVCShop\\09.Model2MVCShop(jQuery_s)\\src\\main\\webapp\\images\\uploadFiles\\";
+			String path = "C:\\Users\\903-16\\git\\repository4\\10.Model2MVCShop(AjaxKS2)\\src\\main\\webapp\\images\\uploadFiles\\";
 			File saveFile = new File(path + files.getOriginalFilename());
 			
 			boolean isExists = saveFile.exists();
@@ -104,7 +104,7 @@ public class ProductController {
 		System.out.println("/product/addProduct : GET & POST");
 		
 		if(FileUpload.isMultipartContent(request)) {
-			String temDir = "C:\\사용자\\903-16\\git\\10Model\\repository\\10.Model2MVCShop(Ajax)\\src\\main\\webapp\\images\\uploadFiles\\";
+			String temDir ="C:\\Users\\903-16\\git\\repository4\\10.Model2MVCShop(AjaxKS2)\\src\\main\\webapp\\images\\uploadFiles\\";
 			
 			DiskFileUpload fileUpload = new DiskFileUpload();
 			
@@ -188,6 +188,7 @@ public class ProductController {
 								@CookieValue(name = "history", defaultValue = "") String history, Model model ,
 								@ModelAttribute User user ,HttpServletResponse response) throws Exception {
 		
+		
 		System.out.println("/product/getProduct : GET & POST");
 		
 		product = productService.getProduct(product.getProdNo());
@@ -258,7 +259,7 @@ public class ProductController {
 					sb.append("*");
 				}
 				
-				String path = "C:\\Users\\bitcamp\\git\\09.Model2MVCShop\\09.Model2MVCShop(jQuery_s)\\src\\main\\webapp\\images\\uploadFiles\\";
+				String path = "C:\\Users\\903-16\\git\\repository4\\10.Model2MVCShop(AjaxKS2)\\src\\main\\webapp\\images\\uploadFiles\\";
 	//			String path = "C:\\Users\\H2\\git\\00.Model2MVCShop\\00.Model2MVCShop\\src\\main\\webapp\\images\\uploadFiles\\";
 				File saveFile = new File(path + files.getOriginalFilename());
 				

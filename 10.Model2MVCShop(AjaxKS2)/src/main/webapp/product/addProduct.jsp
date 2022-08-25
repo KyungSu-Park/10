@@ -84,7 +84,7 @@
 			<td class="ct_write01">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
-						<td width="105">${product.prodQuantity}</td>
+						<td width="105"></td>
 						<td></td>
 					</tr>
 				</table>

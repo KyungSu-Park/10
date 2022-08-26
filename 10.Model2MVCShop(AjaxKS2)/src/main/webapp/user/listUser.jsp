@@ -42,9 +42,13 @@
 					//Debug..
 					//alert(  $( this ).text().trim() );
 					
-					//////////////////////////// 추가 , 변경된 부분 ///////////////////////////////////
-					//self.location ="/user/getUser?userId="+$(this).text().trim();
-					////////////////////////////////////////////////////////////////////////////////////////////
+			
+					self.location ="/user/getUser?userId="+$(this).text().trim();
+			})
+			
+			$( ".ct_list_pop td:nth-child(3)" ).hover(
+					function() 	{
+					
 					var userId = $(this).text().trim();
 					$.ajax( 
 							{
@@ -74,10 +78,12 @@
 									$("h3").remove();
 									$( "#"+userId+"" ).html(displayValue);
 								}
-						});
+							});
+					}, function() {}
+						);
 						////////////////////////////////////////////////////////////////////////////////////////////
 					
-			});
+			
 			
 			//==> userId LINK Event End User 에게 보일수 있도록 
 			$( ".ct_list_pop td:nth-child(3)" ).css("color" , "red");

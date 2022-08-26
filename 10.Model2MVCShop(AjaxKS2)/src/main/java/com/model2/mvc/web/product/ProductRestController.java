@@ -78,11 +78,11 @@ public class ProductRestController {
 		System.out.println("/product/json/listProduct : GET & POST");
 		
 		return productService.getProductList(search);
-		
+
 	}
 	
-	@RequestMapping(value = "/json/getProduct")
-	public Product getProduct(@RequestParam("prodNo") int prodNo) throws Exception {
+	@RequestMapping(value = "/json/getProduct/{prodNo}")
+	public Product getProduct(@PathVariable("prodNo") int prodNo) throws Exception {
 		
 		System.out.println("/product/json/getProduct : GET & POST");
 		

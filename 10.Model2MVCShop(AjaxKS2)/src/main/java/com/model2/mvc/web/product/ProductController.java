@@ -186,7 +186,7 @@ public class ProductController {
 	@RequestMapping(value = "getProduct")
 	public String getProduct(@ModelAttribute Product product, @RequestParam(value = "menu", defaultValue = "search") String menu, 
 								@CookieValue(name = "history", defaultValue = "") String history, Model model ,
-								@ModelAttribute User user ,HttpServletResponse response) throws Exception {
+								HttpServletResponse response) throws Exception {
 		
 		
 		System.out.println("/product/getProduct : GET & POST");
@@ -195,7 +195,8 @@ public class ProductController {
 		
 		model.addAttribute("product", product);
 		model.addAttribute("menu", menu);
-		model.addAttribute("user", user);
+		
+		System.out.println( " 쿠키 전 값 : "+history);
 		
 		if(history != null) {
 			history = URLDecoder.decode(history, "EUC-KR") + "," + Integer.toString(product.getProdNo());
@@ -204,7 +205,9 @@ public class ProductController {
 		}
 		
 		Cookie cookie = new Cookie("history", URLEncoder.encode(history, "EUC-KR"));
-
+		System.out.println( " 쿠키 후 값 : "+history);
+		System.out.println(cookie+"\n"+product+"\n");
+		
 		response.addCookie(cookie);
 		
 		String URI = null;

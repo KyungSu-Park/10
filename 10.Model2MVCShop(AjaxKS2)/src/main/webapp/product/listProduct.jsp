@@ -26,11 +26,53 @@
 		$("form").attr("method", "POST").attr("action", "/product/listProduct").submit();
 	}
 	
+	
+	
+	
 	function fncGetListPrice() {
 		//document.detailForm.submit();
 		
 		$("form").attr("method", "POST").attr("action", "/product/listProduct").submit();
 	}
+	
+	
+	
+	
+	
+	function view(){
+		var prodNo = $(this).parent().find("td:eq(0)").text();
+		$.ajax( 
+			{
+				url : "/product/json/getproduct/"+prodNo ,
+				method : "GET" ,
+				dataType : "json" ,
+				headers : {
+					"Accept" : "application/json",
+					"Content-Type" : "application/json"
+				},
+				success : function(JSONData , status) {
+
+					//Debug...
+					//alert(status);
+					//Debug...
+					//alert("JSONData : \n"+JSONData);
+					
+					var displayValue = "<h3>"
+												+"번 호 : "+JSONData.prodNo+"<br/>"
+												+"물품이름 : "+JSONData.prodName+"<br/>"
+												+"세부설명 : "+JSONData.prodDetail+"<br/>"
+												+"제조일자 : "+JSONData.manuDate+"<br/>"
+												+"가 격 : "+JSONData.price+"<br/>"
+												+"</h3>";
+		
+		$( "#"+prodNo+"" ).html(displayValue);
+		$("h3").remove();
+		
+	}
+			})}		
+	
+	
+	
 	
 	$(function(){
 		
@@ -46,12 +88,85 @@
 		
 		$(".ct_list_pop td:nth-child(3)").bind("click", function(){
 			
-			var thisRow = $(this).parent().find("td:eq(0)").text();
+			
 			
 			//alert(thisRow);
-			self.location = "/product/getProduct?prodNo=" + $(this).parent().find("td:eq(0)").text() + "&menu=${menu}";
-			
+			 self.location = "/product/getProduct?prodNo=" + $(this).parent().find("td:eq(0)").text() + "&menu=${menu}";
+			 
+			 
+		/* 	 var thisRow = $(this).parent().find("td:eq(0)").text();
+				var prodNo = $(this).parent().find("td:eq(0)").text().trim();
+				$.ajax( 
+					{
+						url : "/product/json/getProduct/"+prodNo ,
+						method : "GET" ,
+						dataType : "json" ,
+						headers : {
+							"Accept" : "application/json",
+							"Content-Type" : "application/json"
+						},
+						success : function(JSONData , status) {
+
+							//Debug...
+							//alert(status);
+							//Debug...
+							//alert("JSONData : \n"+JSONData);
+							
+							var displayValue = "<h3>"
+														+"번 호 : "+JSONData.prodNo+"<br/>"
+														+"물품이름 : "+JSONData.prodName+"<br/>"
+														+"세부설명 : "+JSONData.prodDetail+"<br/>"
+														+"제조일자 : "+JSONData.manuDate+"<br/>"
+														+"가 격 : "+JSONData.price+"<br/>"
+														+"</h3>";
+				$("h3").remove();
+				$( "#"+prodNo+"" ).html(displayValue);
+				
+						}
+		}); */
 		});
+	
+		
+		$( ".ct_list_pop td:nth-child(3)" ).hover(
+				function() 	{
+				
+				var prodNo = $(this).parent().find("td:eq(0)").text();
+				$.ajax( 
+					{
+						url : "/product/json/getProduct/"+prodNo ,
+						method : "GET" ,
+						dataType : "json" ,
+						headers : {
+							"Accept" : "application/json",
+							"Content-Type" : "application/json"
+						},
+						success : function(JSONData , status) {
+
+							//Debug...
+							//alert(status);
+							//Debug...
+							//alert("JSONData : \n"+JSONData);
+							
+							var displayValue = "<h3>"
+														+"번 호 : "+JSONData.prodNo+"<br/>"
+														+"물품이름 : "+JSONData.prodName+"<br/>"
+														+"세부설명 : "+JSONData.prodDetail+"<br/>"
+														+"제조일자 : "+JSONData.manuDate+"<br/>"
+														+"가 격 : "+JSONData.price+"<br/>"
+														+"</h3>";
+				$("h3").remove();
+				$( "#"+prodNo+"" ).html(displayValue);
+				
+						}
+			})}, function() {
+	
+			}) 
+});
+		
+	
+	
+		
+		
 		
 		/* $("#low_price").bind("click", function(){
 			
@@ -69,9 +184,9 @@
 			$("form").attr("method", "POST").attr("action", "/product/listProduct").submit();
 		}); */
 		
-	});
+</script>
 	
-	</script>
+	
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
@@ -198,7 +313,7 @@
 						
 			</tr>
 		<tr>
-			<td colspan="11" bgcolor="D6D7D6" height="1"></td>
+			<td id="${list.prodNo}" colspan="11" bgcolor="D6D7D6" height="1"></td>
 		</tr>
 		</c:forEach>
 	</table>

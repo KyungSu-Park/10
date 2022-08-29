@@ -37,7 +37,56 @@
 	}
 	
 	
-	
+	$(document).scroll(function(){
+		var maxHeight = $(document).height();
+		//alert(maxHeight);
+		
+		var currentScroll = Math.ceil($(window).scrollTop() + $(window).height());
+		
+		if(currentScroll >= maxHeight) {
+			
+			var count = 1;
+			var currentPage = parseInt($("#currentPage").val()) + count;
+			
+			
+			$("#currentPage").val(currentPage);
+
+			$.ajax(
+				{
+					url : "/product/json/listProduct",
+					method : "POST",
+					data : JSON.stringify ({
+						currentPage : parseInt($("#currentPage").val())
+					}), 
+					dataType : "json",
+					contentType: "application/json",						
+					success : function(data, status) {
+						var value = "";
+						$.each(data, function(index, item) {
+							value += '<tr class="ct_list_pop"><td width="100" align="center">' + (parseInt($($(".ct_list_pop:last td")[0]).text()) + index + 1) + '</td>'
+									+ '<td></td>'
+									+ '<td align="left" style="text-decoration:underline" width="150">' + item.prodNo + '</td>'
+									+ '<td></td>'
+									+ '<td align="left">' + item.prodName + '</td>'
+									+ '<td></td>'
+									+ '<td align="left">' + item.price + '</td>'
+									+ '</tr>'
+									+ '<td></td>'
+									+ '<td align="left">' + item.prodDetail + '</td>'
+									+ '</tr>'
+									+ '<tr><td id="' + item.prodNo +'" colspan="11" bgcolor="D6D7D6" height="1"></td></tr>';
+									
+						});
+					
+						
+						$(value).appendTo($("table")[4]);
+						
+						count++;
+					} 
+				}
+			
+		)};
+		});
 	
 	
 	function view(){

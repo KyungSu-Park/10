@@ -44,7 +44,11 @@
 			$( ".Depth03:contains('판매상품등록')" ).on("click" , function() {
 			
 		 		$(window.parent.frames["rightFrame"].document.location).attr("href","/product/addProduct/");
-			}); 	  	
+			}); 	  
+			
+			$('#menubarAdmin div:contains("구매 관리")').bind("click", function(){
+				$(window.parent.frames["rightFrame"].document.location).attr("href","/purchase/listPurchase?menu=manage");
+			})
 				 
 		
 				//==> 개인정보조회 Event 연결처리부분
@@ -111,6 +115,11 @@
 					</td>
 				</tr>
 				<tr>
+					<td class="Depth03">
+						구매 관리
+					</td>
+				</tr>
+				<tr>
 					<td class="DepthEnd">&nbsp;</td>
 				</tr>
 			</table>
@@ -131,7 +140,7 @@
 			<c:if test="${ !empty user && user.role == 'user'}">
 			<tr>
 				<td class="Depth03">
-					<a href="/listPurchase.do"  target="rightFrame">구매이력조회</a>
+					<a href="/purchase/listPurchase/"  target="rightFrame">구매이력조회</a>
 				</td>
 			</tr>
 			</c:if>

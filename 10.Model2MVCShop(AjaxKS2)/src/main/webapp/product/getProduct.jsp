@@ -18,32 +18,8 @@
 	
 	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript">
-	
-	function fncAddBasket(){
-		
-		$("#Quantity").val($("#QuantityShow").html());
-		$("form").attr("method", "POST").attr("action", "/basket/addBasket").submit();
-	}
-	
-	function count(type)  {
-		  // 결과를 표시할 element
-		  // const QuantityShow = document.getElementById('QuantityShow');
-		  const QuantityShow = $("#QuantityShow");
-		  
-		  // 현재 화면에 표시된 값
-		  let number = QuantityShow.html();
-		  
-		  // 더하기/빼기
-		  if(type === 'plus') {
-		    number = parseInt(number) + 1;
-		  }else if(type === 'minus')  {
-		    number = parseInt(number) - 1;
-		  }
-		  
-		  // 결과 출력
-		  QuantityShow.html(number);
-	}
-	
+
+
 	function fncPurchase() {
 		
 		$("#Quantity").val($("#QuantityShow").html());
@@ -52,12 +28,6 @@
 	
 	$(function(){
 			
-		$("td.ct_btn01:contains('장바구니 추가')").bind("click", function(){
-			
-			fncAddBasket();
-			
-		})
-		
 		$("td.ct_btn01:contains('구매')").bind("click", function(){
 			
 			fncPurchase();
@@ -155,7 +125,7 @@
 			
 			<td class="ct_write01">
 				<c:forEach var="i" items="${text}">
-					<img src="/images/uploadFiles/${i}" width="100" height="100" align="absmiddle"/>
+					<img src="/images/uploadFiles/${i}" width="300" height="300" align="absmiddle"/>
 				</c:forEach>
 			</td>
 		</tr>
@@ -215,45 +185,18 @@
 					<c:if test="${user eq null || user.role == 'user'}" >
 						<table border="0" cellspacing="0" cellpadding="0">
 							<tr>
-								
 								<td class="ct_write01" >
-									
 									<input type="hidden" id="Quantity" name="Quantity" value="1"/>
-									
-								
-									
 								</td>
-								
 							</tr>
-							
 						</table>
-						
-				
-						
-						
-						
-						
-						
 						<td width="30"></td>
-						
-				
-						
-						
-							<td background="/images/ct_btnbg02.gif" class="ct_btn01" >
-								구매 불가
-							</td>
-						
-							
-						</c:if>
-						
-						<td width="30"></td>
-					
-			
-					<td width="17" height="25">
-						<img src="/images/ct_btnbg01.gif" width="17" height="23"/>
-					</td>
-					
-					<td background="/images/ct_btnbg02.gif" width="108" class="ct_btn01" style="padding-top: 3px;">
+					 <td background="/images/ct_btnbg02.gif" width="90" class="ct_btn01" style="padding-top: 3px;">
+								구매
+					</td>	
+						</c:if>		
+						<td width="30"></td>	
+					<td background="/images/ct_btnbg02.gif" width="90" class="ct_btn01" style="padding-top: 3px;">
 						이전
 					</td>
 					

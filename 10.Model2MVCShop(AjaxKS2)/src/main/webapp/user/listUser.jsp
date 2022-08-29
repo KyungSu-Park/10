@@ -46,23 +46,9 @@
 					self.location ="/user/getUser?userId="+$(this).text().trim();
 			})
 			
-			 $(function(){
-				 let index=0;
-      			  $(window).scroll(function(){
-          		  let $window = $(this);
-          		  let scrollTop = $window.scrollTop();
-           		  let windowHeight = $window.height();
-           		  let documentHeight = $(document).height();
-            
-           		 console.log("documentHeight:" + documentHeight + " | scrollTop:" + scrollTop + " | windowHeight: " + windowHeight );
-            
-           		 // scrollbar의 thumb가 바닥 전 30px까지 도달 하면 리스트를 가져온다.
-           		 if( scrollTop + windowHeight  > documentHeight ){
-             		 	$('body').append($("ct_list_pop"))
-           			 
-         	 	 	 	}
-   				    })
-       	 	 });	
+			 
+	
+		
 		
    	
 		
@@ -110,7 +96,7 @@
 			$( ".ct_list_pop td:nth-child(3)" ).css("color" , "red");
 			$("h7").css("color" , "red");
 			
-			//==> 아래와 같이 정의한 이유는 ??
+			//==> 아래와 같이 정의한 이유는 ? 줄긋기.
 			$(".ct_list_pop:nth-child(4n+6)" ).css("background-color" , "whitesmoke");
 		});	
 		
@@ -217,7 +203,7 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0"	style="margin-top:10px;">
 	<tr>
 		<td align="center">
-		   <input type="hidden" id="currentPage" name="currentPage" value=""/>
+		   <input type="hidden" id="currentPage" name="currentPage" value="1"/>
 	
 			<jsp:include page="../common/pageNavigator.jsp"/>	
 			

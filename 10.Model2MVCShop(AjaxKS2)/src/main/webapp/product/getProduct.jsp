@@ -15,6 +15,7 @@
 	<title></title>
 	</head>
 	
+	
 	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript">
 	
@@ -63,7 +64,7 @@
 			
 		});
 		
-		$("td.ct_btn01:contains('취소')").bind("click", function(){
+		$("td.ct_btn01:contains('이전')").bind("click", function(){
 			
 			history.go(-1);
 			
@@ -219,11 +220,7 @@
 									
 									<input type="hidden" id="Quantity" name="Quantity" value="1"/>
 									
-									<input type='button' value='-' />									
-									
-									<span id='QuantityShow'>1</span>
-									
-									<input type='button' value='+'/>&nbsp;&nbsp;&nbsp;&nbsp;
+								
 									
 								</td>
 								
@@ -231,30 +228,22 @@
 							
 						</table>
 						
-						<td width="5" height="25">
-							<img src="/images/ct_btnbg01.gif" width="17" height="23"/>
-						</td>
+				
 						
 						
 						
-						<td width="5" height="25">
-							<img src="/images/ct_btnbg03.gif" width="14" height="23">
-						</td>
+						
 						
 						<td width="30"></td>
 						
 				
-							<td width="17" height="25">
-								<img src="/images/ct_btnbg01.gif" width="17" height="23"/>
+						
+						
+							<td background="/images/ct_btnbg02.gif" class="ct_btn01" >
+								구매 불가
 							</td>
 						
-							<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top: 3px;">
-								구매
-							</td>
-						
-							<td width="14" height="25">
-								<img src="/images/ct_btnbg03.gif" width="14" height="23">
-							</td>
+							
 						</c:if>
 						
 						<td width="30"></td>

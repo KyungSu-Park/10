@@ -33,6 +33,7 @@
 		//document.detailForm.submit();
 		
 		$("form").attr("method", "POST").attr("action", "/product/listProduct").submit();
+		
 	}
 	
 	

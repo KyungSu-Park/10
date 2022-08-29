@@ -321,6 +321,8 @@ public class ProductController {
 		return "forward:/product/listProduct.jsp";
 	}
 	
+
+	
 	@RequestMapping(value = "removeFileProduct", method = RequestMethod.GET)
 	public String removeFileProduct(@ModelAttribute Product product, @RequestParam("fileName") String fileName,
 									@RequestParam("prodNo") int prodNo, Model model) throws Exception {

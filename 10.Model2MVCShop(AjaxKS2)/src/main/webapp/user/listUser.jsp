@@ -46,6 +46,27 @@
 					self.location ="/user/getUser?userId="+$(this).text().trim();
 			})
 			
+			 $(function(){
+				 let index=0;
+      			  $(window).scroll(function(){
+          		  let $window = $(this);
+          		  let scrollTop = $window.scrollTop();
+           		  let windowHeight = $window.height();
+           		  let documentHeight = $(document).height();
+            
+           		 console.log("documentHeight:" + documentHeight + " | scrollTop:" + scrollTop + " | windowHeight: " + windowHeight );
+            
+           		 // scrollbar의 thumb가 바닥 전 30px까지 도달 하면 리스트를 가져온다.
+           		 if( scrollTop + windowHeight  > documentHeight ){
+             		 	$('body').append($("ct_list_pop"))
+           			 
+         	 	 	 	}
+   				    })
+       	 	 });	
+		
+   	
+		
+			
 			$( ".ct_list_pop td:nth-child(3)" ).hover(
 					function() 	{
 					
